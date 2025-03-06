@@ -8,6 +8,9 @@
 
         // relation many to one avec Category (Un quiz appartient à une catégorie )
         public Category Category { get; set; }
+
+        public Guid CategoryId { get; set; }
+
         public Byte Difficulty { get; set; }
         public DateTime DateCreation { get; set; }
 

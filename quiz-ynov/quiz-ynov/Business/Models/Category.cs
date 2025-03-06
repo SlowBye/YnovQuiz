@@ -8,6 +8,5 @@
         // relation one to many avec Quiz (Une catégorie peut contenir plusieurs quiz ) 
         public IEnumerable<Quiz> Quizs { get; set; }
 
-
     }
 }
