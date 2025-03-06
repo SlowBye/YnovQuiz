@@ -1,7 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
 using quiz_ynov.Business;
 using quiz_ynov.Business.Services;
 using quiz_ynov.Controllers.Mappers;
+using quiz_ynov.EntityFramework;
 
 namespace quiz_ynov
 {
@@ -23,6 +25,13 @@ namespace quiz_ynov
             builder.Services.AddScoped<QuestionMapper>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<CategoryMapper>();
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                ?? throw new InvalidOperationException("Connection string is missing");
+
+            builder.Services.AddDbContext<ApplicationDbContext>(builder =>
+            {
+                builder.UseSqlServer(connectionString);
+            });
 
             var app = builder.Build();
 
