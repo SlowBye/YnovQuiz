@@ -1,0 +1,14 @@
+<div class="quiz-details-container">
+  <h1 class="quiz-title">{{ quize?.name }}</h1>
+  <div class="quiz-details">
+    <ul class="quiz-info">
+      <li><strong>Description:</strong> {{ quize?.description }}</li>
+      <li><strong>Category:</strong> {{ category?.name }}</li> <!-- Display the category name -->
+      <li><strong>Creation Date:</strong> {{ quize?.dateCreation }}</li>
+      <li><strong>Difficulty:</strong> {{ quize?.difficulty }}</li>
+    </ul>
+    <button class="btn-start" [disabled]="!quize?.id" (click)="startQuiz(quize?.id || '')">
+      Start the quiz
+    </button>
+  </div>
+</div>
